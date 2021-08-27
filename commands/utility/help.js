@@ -20,6 +20,11 @@ module.exports = {
             new MessageButton()
             .setLabel('Invite')
             .setURL('https://discord.com/api/oauth2/authorize?client_id=875322665064357888&permissions=261993005047&scope=bot')
+            .setStyle('LINK'), 
+
+            new MessageButton()
+            .setLabel('Repository')
+            .setURL('https://github.com/Epicrafter/moderator-bot')
             .setStyle('LINK')
 
         )
