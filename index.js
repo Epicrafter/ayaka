@@ -1,10 +1,9 @@
 const { Client, Collection, MessageEmbed } = require('discord.js');
 const fs = require('fs');
 require('./helpers/extenders');
+require('dotenv').config();
 
-// Embeds
 const config = require('./config'); 
-const { token } = require('./tokens.json');
 const permissionEmbed = require('./assets/embeds/permissionEmbed');
 
 const language = config.language || 'EN';
@@ -107,4 +106,4 @@ client.on('messageCreate', async (message) => {
 });
 
 client.mongoose.init();
-client.login(token);
+client.login(process.env.TOKEN);

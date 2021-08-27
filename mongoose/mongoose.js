@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-let { link } = require('../tokens.json');
+require('dotenv').config();
 
 module.exports = {
     init: () => {
@@ -11,7 +11,7 @@ module.exports = {
             
         };
 
-        mongoose.connect(link, dbOptions);
+        mongoose.connect(process.env.LINK, dbOptions);
         mongoose.set('useFindAndModify', false);
         mongoose.Promise = global.Promise;
 
