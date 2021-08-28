@@ -40,7 +40,7 @@ module.exports = {
             return;
 
         });
-
+ 
         let channel = await Guild.findOne({
 
             guildID: message.guild.id
