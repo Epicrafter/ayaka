@@ -5,7 +5,7 @@
 // module.exports = {
 //     name: 'whois',
 //     description: 'returns all the information about a member',
-//     category: 'moderation',
+//     category: 'information',
 //     usage: 'whois [@member]',
 //     permission: 'MANAGE_MESSAGES',
 //     run: async (client, message, args, embed) => {

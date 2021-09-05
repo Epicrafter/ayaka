@@ -31,7 +31,7 @@ const languageData = {
     CANT_KICK_USER: "You can't kick that user",
     KICKED: (userTag) => `**${userTag}** has been kicked`,
     KICKED_DM: (guildName) => `You have been kicked from **${guildName}**`,
-    KICK_COUNT: (count) => `**Nombre d'exclusions**: ${count}`,
+    KICK_COUNT: (count) => `**Kick Count**: ${count}`,
     KICKED_BY: (author) => `**Kicked by**: ${author}`,
 
     USER_CHECK_TYPE: "Check type",
@@ -90,7 +90,36 @@ const languageData = {
     NEW_MEMBER: (message) => `Welcome message is now set to\n\`\`\`${message}\`\`\``,
     BYE_MEMBER: (message) => `Goodbye message is now set to\n\`\`\`${message}\`\`\``,
     NO_EVENT_TYPE: 'Please provide the type of event (\`\`welcome\`\` or \`\`goodbye\`\`)',
-    NO_CUSTOM_MESSAGE: "A custom message is required"
+    NO_CUSTOM_MESSAGE: "A custom message is required",
+
+    NO_DM_MESSAGE: "Please include the message you wish to send to the user",
+    DM_SUCCESS: "Successfully sent the message to the user",
+    DM_ERROR: "An error occurred while trying to send the message to the user",
+    SENT_YOU_DM: (user) => `${user} sent you a message`,
+    SENT_FROM: (server) => `**Sent from server:** ${server}`,
+
+    BAN: "ban",
+    CANT_KICK_YOURSELF: "You can't ban yourself",
+    CANT_KICK_USER: "You can't ban that user",
+    BANNED: (userTag) => `**${userTag}** has been banned`,
+    BANNED_DM: (guildName) => `You have been banned from **${guildName}**`,
+    BAN_COUNT: (count) => `**Ban Count**: ${count}`,
+    BANNED_BY: (author) => `**Banned by**: ${author}`,
+
+    CHANNEL_LOCKED: 'Channel has been locked',
+    NOT_LOCKED: 'This channel isn\'t locked',
+    ALREADY_LOCKED: 'This channel is already locked',
+    CHANNEL_UNLOCKED: 'Channel has been unlocked',
+
+    NO_ANNOUNCE_CHANNEL: 'Please specify to which channel you would like to send the announcement too',
+    NO_ANNOUNCEMENT: 'Please provide a announcement message',
+    ANNOUNCE_SUCCESS: 'The announcement was successfully delivered',
+    NEW_ANNOUNCEMENT: 'New announcement',
+
+    NO_SANCTION_ID: 'Please provide a sanction ID',
+    NOT_A_SANCTION: 'A sanction with this ID doesn\'t exist',
+    GET_SANCTION_NOTE: 'To get information about a specific sanction, use the \`\`getsanction\`\` command\n',
+    NO_SANCTION: '**This user does not have any registered sanctions**'
 
 };
 

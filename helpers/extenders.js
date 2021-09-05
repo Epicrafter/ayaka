@@ -30,3 +30,14 @@ Message.prototype.error = function(key, options = {}) {
 
 }
 
+Message.prototype.warning = function(key, options = {}) {
+
+    options.emoji = ':warning:';
+    const data = `${options.emoji} ${markdown.bold(key)}`;
+
+    embed.setColor('#ffcc4d')
+    embed.setDescription(data)
+
+    return options.type == 'message' ? this.channel.send(data) : this.channel.send({ embeds: [embed] });
+
+}

@@ -10,16 +10,20 @@ client.on('guildMemberRemove', async (member) => {
 
     }).catch(err => { console.error(err) });
 
-    let channel;
-    let message;
-    if(guildSettings.goodbyeChannel) channel = guildSettings.goodbyeChannel, message = guildSettings.goodbyeMessage;
+    if(guildSettings.goodbyeChannel) {
 
-    let final = message.replace('<user>', `<@${member.id}>`).replace('<server>', member.guild.name).replace('<member_count>', member.guild.memberCount);
+        let channel;
+        let message;
+        if(guildSettings.goodbyeChannel) channel = guildSettings.goodbyeChannel, message = guildSettings.goodbyeMessage;
 
-    let embed = new MessageEmbed()
-    .setColor('#ff6b6b')
-    .setDescription(final)
+        let final = message.replace('<user>', `<@${member.id}>`).replace('<server>', member.guild.name).replace('<member_count>', member.guild.memberCount);
 
-    member.guild.channels.cache.get(channel).send({ embeds: [embed ]});
+        let embed = new MessageEmbed()
+        .setColor('#ff6b6b')
+        .setDescription(final)
+
+        member.guild.channels.cache.get(channel).send({ embeds: [embed ]});
+
+    }
 
 })

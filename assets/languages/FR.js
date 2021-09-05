@@ -92,7 +92,36 @@ const languageData = {
     NEW_MEMBER: (message) => `Le message de bienvenue est maintenant\n\`\`\`${message}\`\`\``,
     BYE_MEMBER: (message) => `Le message d'adieu est maintenant \n\`\`\`${message}\`\`\``,
     NO_EVENT_TYPE: "Veuillez indiquer le type d'événement (\`\`welcome\`\` or \`\`goodbye\`\`)",
-    NO_CUSTOM_MESSAGE: "Un message custom est nécessaire"
+    NO_CUSTOM_MESSAGE: "Un message custom est nécessaire",
+
+    NO_DM_MESSAGE: "Veuillez inclure le message que vous souhaitez envoyer à l'utilisateur",
+    DM_SUCCESS: "Le message a été envoyé avec succès à l'utilisateur",
+    DM_ERROR: "Une erreur s'est produite lors de l'envoi du message à l'utilisateur",
+    SENT_YOU_DM: (user) => `${user} vous à envoyé un message`,
+    SENT_FROM: (server) => `**Envoyé depuis le serveur:** ${server}`,
+
+    BAN: "bannir",
+    CANT_BAN_YOURSELF: "Vous ne pouvez pas vous bannir vous-même",
+    CANT_BAN_USER: "Vous ne pouvez pas bannir cet utilisateur",
+    BANNED: (userTag) => `**${userTag}** a été banni`,
+    BANNED_DM: (guildName) => `Vous avez été banni de **${guildName}**`,
+    BAN_COUNT: (count) => `**Nombre de bannissement**: ${count}`,
+    BANNED_BY: (author) => `**Banni par**: ${author}`,
+
+    CHANNEL_LOCKED: 'Le salon a été verrouillé',
+    NOT_LOCKED: 'Ce salon n\'est pas verrouillé',
+    ALREADY_LOCKED: 'Ce salon est déjà verrouillé',
+    CHANNEL_UNLOCKED: 'Le salon a été déverrouillé',
+
+    NO_ANNOUNCE_CHANNEL: 'Veuillez préciser le salon dans lequel vous souhaitez envoyer l\'annonce',
+    NO_ANNOUNCEMENT: 'Veuilliez fournir un message d\'annonce',
+    ANNOUNCE_SUCCESS: 'L\'annonce a été livrée avec succès',
+    NEW_ANNOUNCEMENT: 'Nouvelle annonce',
+
+    NO_SANCTION_ID: 'Veuillez fournir un ID de sanction',
+    NOT_A_SANCTION: 'Une sanction avec cet ID n\'existe pas',
+    GET_SANCTION_NOTE: 'Pour obtenir plus d\'informations sur une sanction, utilisez la commande \`\`getsanction\`\`',
+    NO_SANCTION: '**Cet utilisateur n\'a pas de sanctions enregistrées**'
 
 };
 

@@ -41,16 +41,20 @@ client.on('guildMemberAdd', async (member) => {
 
     }).catch(err => { console.error(err) });
 
-    let channel;
-    let message;
-    if(guildSettings.welcomeChannel) channel = guildSettings.welcomeChannel, message = guildSettings.welcomeMessage;
+    if(guildSettings.welcomeChannel) {
 
-    let final = message.replace('<user>', `<@${member.id}>`).replace('<server>', member.guild.name).replace('<member_count>', member.guild.memberCount);
+        let channel;
+        let message;
+        if(guildSettings.welcomeChannel) channel = guildSettings.welcomeChannel, message = guildSettings.welcomeMessage;
 
-    let embed = new MessageEmbed()
-    .setColor('#feca57')
-    .setDescription(final)
+        let final = message.replace('<user>', `<@${member.id}>`).replace('<server>', member.guild.name).replace('<member_count>', member.guild.memberCount);
 
-    member.guild.channels.cache.get(channel).send({ embeds: [embed ]});
+        let embed = new MessageEmbed()
+        .setColor('#feca57')
+        .setDescription(final)
+
+        member.guild.channels.cache.get(channel).send({ embeds: [embed ]});
+
+    }
 
 })

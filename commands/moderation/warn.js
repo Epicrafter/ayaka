@@ -6,6 +6,10 @@ const updateWarn = require('../../mongoose/user/updateWarn');
 
 const User = require('../../models/user');
 const Guild = require('../../models/guild');
+const newLogs = require('../../mongoose/sanctions/newLogs');
+
+const id = require('uniqid');   
+const moment = require('moment');
 
 module.exports = {
     name: 'warn',
@@ -14,8 +18,6 @@ module.exports = {
     usage: 'warn <@member> <reason>',
     permission: 'MANAGE_MESSAGES',
     run: async (client, message, args, sanctionEmbed) => {
-
-        message.delete().catch(() => console.log('cannot delete user\'s message'));
 
         let cmd = client.commands.get('warn');
 
@@ -53,9 +55,21 @@ module.exports = {
 
         });
 
+        let uid = id();
+        let date = moment(new Date());
+        
+        newLogs({
+            id: uid,
+            guildId: message.guild.id, 
+            userId: member.id, 
+            logType: 'Warning',
+            reason: reason, 
+            date: date
+        });
+
         if(!channel.sanctionsChannel) return message.error(client.lang('NO_SANCTIONS_CHANNEL'), { type: 'embed' } );
 
-        sanctionEmbed.setDescription(`${client.lang('WARNED_DM', message.guild.name)}\n${client.lang('REASON', reason)}\n${client.lang('WARN_COUNT', userInfo.warnCount)}\n${client.lang('WARNED_BY', message.author.tag)}`)
+        sanctionEmbed.setDescription(`${client.lang('WARNED_DM', message.guild.name)}\n${client.lang('REASON', reason)}\n${client.lang('WARN_COUNT',  `${userInfo.warnCount + 1}`)}\n${client.lang('WARNED_BY', message.author.tag)}`)
         sanctionEmbed.setTimestamp()
         
         member.send({ embeds: [sanctionEmbed ]}).catch(() => console.log("Can't send message to this user"));
@@ -64,7 +78,7 @@ module.exports = {
         .setColor(client.embedColor)
         .setTitle('Sanction')
         .setTimestamp()
-        .setDescription(`${client.lang('WARNED', member.user.tag)}\n${client.lang('REASON', reason)}\n${client.lang('WARN_COUNT', userInfo.warnCount)}`)
+        .setDescription(`${client.lang('WARNED', member.user.tag)}\n${client.lang('REASON', reason)}\n${client.lang('WARN_COUNT', `${userInfo.warnCount + 1}`)}\n**Sanction ID**: ${uid}`)
 
         message.guild.channels.cache.get(channel.sanctionsChannel).send({ embeds: [embed] });
 

@@ -3,7 +3,7 @@ const { MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
     name: 'help',
     description: 'show commands list or specific command help',
-    category: 'utility',
+    category: 'information',
     usage: 'help [command_name]',
     run: async (client, message, args, embed) => {
         
@@ -24,7 +24,7 @@ module.exports = {
 
             new MessageButton()
             .setLabel('Repository')
-            .setURL('https://github.com/Epicrafter/moderator-bot')
+            .setURL('https://github.com/Epicrafter/ayaka')
             .setStyle('LINK')
 
         )

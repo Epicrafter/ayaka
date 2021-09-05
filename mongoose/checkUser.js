@@ -2,8 +2,6 @@ const User = require('../models/user');
 
 module.exports = async function checkUser(guildID, userID, username, userTag) {
 
-    console.log('function fired')
-
     await User.findOne({
 
         guildID: guildID,
